@@ -4,13 +4,10 @@
     <meta charset="utf-8">
     <title>360&deg; Passeio Virtual do Museu Cais do Sertão</title>
     <meta name="description" content="360&deg; Image Gallery - A-Frame">
-    <link rel="stylesheet"  type=”text/css” href="css/styleCaisSertao.css">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
-    <!--script src="components/set-image.js"></script-->
 
     <!-- for desktop menu overlay -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
@@ -19,24 +16,32 @@
      <!-- jquery for city builder app components -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
     <!------ Carousel ---------->
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/jsWid=UA-44130515-33"></script>
+    <script>
+        window.fataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)};
+        gtag('js', new Date());
+
+        gtag('config', 'UA-44130515-33');
+    </script>
 
     <style>
 
         .intro-overlay {
           z-index: 1;
           position: absolute;
-          top: 30%;
-          left: 20%;
-          max-width: 700px;
+          top: 20%;
+          left: 14%;
+          max-width: 900px;
           box-sizing: border-box;
           padding: 1.5em;
           color: #FFF;
@@ -48,7 +53,7 @@
         .intro-overlay-caroussel {
           z-index: 1;
           position: absolute;
-          top: 70%;
+          top: 78%;
           left: 0%;
           width: 100%;
           box-sizing: border-box;
@@ -77,13 +82,28 @@
           background-size: 40px 40px;
         }
 
+        h1 {
+          font-size: 40px;
+          color: #eaab00;
+        }
+
+        p {
+          font-size: 15px;
+        }
+
+        .btn-success {
+          background: #eaab00;
+        }
+
         @media (min-width: 768px) {
 
-          /* show 3 items */
-          .carousel-inner .active,
+          /* show 6 items */
           .carousel-inner .active + .carousel-item,
           .carousel-inner .active + .carousel-item + .carousel-item,
-          .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
+          .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item,
+          .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
+          .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
+          .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
               display: block;
           }
 
@@ -114,7 +134,9 @@
           .carousel-item-next.carousel-item-left + .carousel-item,
           .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
           .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
-          .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+          .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
+          .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item,
+          .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
               position: relative;
               transform: translate3d(-100%, 0, 0);
               visibility: visible;
@@ -149,43 +171,137 @@
           #profile-grid { overflow: auto; white-space: normal; } 
           #profile-grid .profile { padding-bottom: 40px; }
           #profile-grid .panel { padding: 0 }
-          #profile-grid .panel-body { padding: 15px }
+          #profile-grid .panel-body { padding: 10px }
           #profile-grid .profile-name { font-weight: bold; }
           #profile-grid .thumbnail {margin-bottom:6px;}
           #profile-grid .panel-thumbnail { overflow: hidden; }
           #profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
 
-      </style>
+          
+          
+          .panel-thumbnail {
 
+            border-style: solid;
+            border-color: #eaab00;
+            max-width: 100%;
+
+          }
+          
+          .panel-thumbnail:hover {
+
+            border-style: solid;
+            border-color: white;
+
+          }
+
+
+          .zoom {
+            overflow: hidden;
+          }
+
+          .zoom img {
+            max-width: 100%;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+          }
+
+          .zoom:hover img {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+          }
+
+      #icone-caroussel {
+
+        width: 50px;
+
+      }
+
+      .carousel-control-next, .carousel-control-prev {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 5%;
+        color: #fff;
+        text-align: center;
+        opacity: .5;
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        /* display: inline-block; */
+        width: 20px;
+        height: 20px;
+        margin-bottom: 50%;
+        color: #eaab00;
+       
+    }
+    
+    .description {
+      text-align: center;
+    }
+
+    .a-enter-vr-button {
+      padding-top: -200%;
+    }
+
+    .clicado {
+      border-style: solid;
+      border-color: #eaab00;
+    }
+
+    .desclicado {
+      border-style: solid;
+      border-color: white;
+    }
+
+  </style>
   </head>
-
   <body>
-
-    <a-scene>
-
+    <a-scene cursor="rayOrigin: mouse">
       <a-assets>
-
-        <img id="cais1" crossorigin="anonymous" src="img/cais-sertao-1.jpg">
-        <img id="cais2" crossorigin="anonymous" src="img/cais-sertao-2.jpg">
-        <img id="cais3" crossorigin="anonymous" src="img/cais-sertao-3.jpg">
-
+        <img id="cais1" crossorigin="anonymous" src="img/image-1.jpg">
+        <img id="cais2" crossorigin="anonymous" src="img/image-2.jpg">
+        <img id="cais3" crossorigin="anonymous" src="img/image-3.jpg">
+        <img id="cais4" crossorigin="anonymous" src="img/image-4.jpg">
+        <img id="cais5" crossorigin="anonymous" src="img/image-5.jpg">
+        <img id="cais6" crossorigin="anonymous" src="img/image-6.jpg">
+        <img id="cais7" crossorigin="anonymous" src="img/cais-sertao-7.jpg">
+        <img id="cais8" crossorigin="anonymous" src="img/cais-sertao-8.jpg">
+        <img id="cais9" crossorigin="anonymous" src="img/cais-sertao-9.jpg">
       </a-assets>
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="img/cais-sertao-1.jpg"></a-sky>
+      <a-sky data-array-link-id="rot" data-array="room" id="image-360"  src="#cais1" visible="true" rotation="0 -90 0"></a-sky>
 
       <a-entity text="font: mozillavr; value: Via stock font name."></a-entity>
 
-    </a-scene><br/>
+    <!--Below is the code for POI "circles" that user clicks on -->
 
+    <!-- POI Indicator for Rotunda -->
+    <a-image id="indicator-1"  src="img/POI_Indicator.png" data-is-button-for="rotpoi" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="7 7 7" position="-25 10 -30" opacity="1" rotation="30.66 90 0"></a-image>
+   
+    <a-entity data-is-receiver-for="rotpoi" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+      <a-image src="img/Rotunda_LibertyBell.png" position="-61.70 20 -200" width="80" height="40" scale="2 2 2" rotation="-15 5 0"></a-image>
+    </a-entity>
+
+    </a-scene><br/>
         <!-- dialog box overlay for desktop users -->
         <div id="dialog" class="img-rounded intro-overlay">
 
-            <!-- <p><a onclick="hide()" class="btn btn-danger pull-right">x</a></p> -->
             <h1><strong>Passeio Virtual do Museu Cais do Sertão</strong></h1>
             
             <p>
-               <strong>O passeio virtual do Museu Cais do Sertão tem o objetivo de tornar acessível sua visita sem a necessidade de ir até o mesmo e difundir a Cultura Pernambucana.</strong>
+               <strong>O passeio virtual do Museu Cais do Sertão tem o objetivo de tornar acessível sua visita sem a necessidade de ir até o mesmo e difundir a Cultura Pernambucana. Para usar o passeio virtual do Cais do Sertão você clica na imagem do caroussel que deseja visitar</strong><img id="icone-caroussel" src="img/icone-exemplo-caroussel.jpg" alt=""><strong> , com o mouse passear pelo ponto escolhido e com as setas mover para frente, traz e lados esquerdo e direito. Para fazer o passeio do ponto escolhido em tela cheia, clicar no ícone <img src="img/tela-cheia.jpg" alt=""></strong>
             </p>
 
             <p><a onclick="hide()" class="btn btn-success pull-right">Fechar</a></p>
@@ -193,89 +309,96 @@
        </div>
 
        <div id="dialog" class="img-rounded intro-overlay-caroussel">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="90000000">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="90000000" >
               <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                  <div class="carousel-item col-md-3">
-                     <div class="panel panel-default">
-                        <div class="panel-thumbnail">
+                  <div class="carousel-item col-sm-2 active">
+                     <div>
+                        <div class="panel-thumbnail zoom">
                           <a href="#" title="image 1" id="image-1" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="img/cais-sertao-1.jpg" alt="slide 1">
+                            <img class="img-fluid mx-auto d-block" src="img/image-1.jpg" alt="slide 1">
+                          </a>
+                        </div>
+                        <p class="description">Imagem 1</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-sm-2">
+                     <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#" id="image-2" title="image 2" class="thumb">
+                           <img  class="img-fluid mx-auto d-block" src="img/image-2.jpg" alt="slide 2">
+                          </a>
+                        </div>
+                        <p class="description">Imagem 2</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-sm-2">
+                     <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#" id="image-3" title="image 3" class="thumb">
+                           <img class="img-fluid mx-auto d-block" src="img/image-3.jpg" alt="slide 3">
+                          </a>
+                        </div>
+                        <p class="description">Imagem 3</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-sm-2">
+                      <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#" id="image-4" title="image 4" class="thumb">
+                           <img class="img-fluid mx-auto d-block " src="img/image-4.jpg" alt="slide 4">
+                          </a>
+                        </div>
+                        <p class="description">Imagem 4</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-sm-2">
+                    <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#" id="image-5" title="image 5" class="thumb">
+                            <img class="img-fluid mx-auto d-block" src="img/image-5.jpg" alt="slide 5">
                           </a>
                         </div>
                       </div>
+                      <p class="description">Imagem 5</p>
                   </div>
-                  <div class="carousel-item col-md-3 ">
-                     <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#" id="image-2" title="image 3" class="thumb">
-                           <img class="img-fluid mx-auto d-block" src="img/cais-sertao-2.jpg" alt="slide 2">
+                  <div class="carousel-item col-sm-2">
+                     <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#"  id="image-6" title="image 6" class="thumb">
+                            <img class="img-fluid mx-auto d-block " src="img/image-6.jpg" alt="slide 6">
                           </a>
                         </div>
+                        <p class="description">Imagem 6</p>
                       </div>
                   </div>
-                  <div class="carousel-item col-md-3 ">
-                     <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#" id="image-3" title="image 4" class="thumb">
-                           <img class="img-fluid mx-auto d-block" src="img/cais-sertao-3.jpg" alt="slide 3">
+                  <div class="carousel-item col-sm-2">
+                     <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#"  id="image-7" title="image 7" class="thumb">
+                            <img class="img-fluid mx-auto d-block" src="img/cais-sertao-7.jpg" alt="slide 7">
                           </a>
                         </div>
+                        <p class="description">Imagem 7</p>
                       </div>
                   </div>
-                  <div class="carousel-item col-md-3 active">
-                      <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#" title="image 5" class="thumb">
-                           <img class="img-fluid mx-auto d-block" src="img/cais-sertao-1.jpg" alt="slide 4">
+                   <div class="carousel-item col-sm-2">
+                      <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#"  id="image-8" title="image 8" class="thumb">
+                           <img class="img-fluid mx-auto d-block" src="img/cais-sertao-8.jpg" alt="slide 8">
                           </a>
                         </div>
+                        <p class="description">Imagem 8</p>
                       </div>
                   </div>
-                  <div class="carousel-item col-md-3 ">
-                    <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#"  title="image 6" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="img/cais-sertao-2.jpg" alt="slide 5">
+                  <div class="carousel-item col-sm-2">
+                      <div>
+                        <div class="panel-thumbnail zoom">
+                          <a href="#"  id="image-9" title="image 9" class="thumb">
+                           <img class="img-fluid mx-auto d-block" src="img/cais-sertao-9.jpg" alt="slide 9">
                           </a>
                         </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item col-md-3 ">
-                     <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#"  title="image 7" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="img/cais-sertao-3.jpg" alt="slide 6">
-                          </a>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item col-md-3 ">
-                     <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#"  title="image 8" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="img/cais-sertao-1.jpg" alt="slide 7">
-                          </a>
-                        </div>
-                      </div>
-                  </div>
-                   <div class="carousel-item col-md-3  ">
-                      <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#"  title="image 2" class="thumb">
-                           <img class="img-fluid mx-auto d-block" src="img/cais-sertao-1.jpg" alt="slide 8">
-                          </a>
-                        </div>
-                        
-                      </div>
-                  </div>
-                  <div class="carousel-item col-md-3  ">
-                      <div class="panel panel-default">
-                        <div class="panel-thumbnail">
-                          <a href="#"  title="image 2" class="thumb">
-                           <img class="img-fluid mx-auto d-block" src="img/cais-sertao-2.jpg" alt="slide 9">
-                          </a>
-                        </div>
-                        
+                        <p class="description">Imagem 9</p>
                       </div>
                   </div>
               </div>
@@ -290,96 +413,154 @@
           </div>
       </div>
 
+    <!-- JS CODE -->
+    <script type="text/javascript">
 
-      <script type="text/javascript">
-
-
-        function hide() {
-            $("#dialog").removeClass('intro-overlay');
-        }
-
-      </script>
-
-      <!-- Código que muda as imagens 360º -->
-      <script type="text/javascript">
-          
+          //Código que muda as imagens 360º 
           document.getElementById("image-1").addEventListener("click", function() {
             document.getElementById("image-360").setAttribute('material', 'src', '#cais1')
           });
-
+          //Código que muda as imagens 360º
            document.getElementById("image-2").addEventListener("click", function() {
             document.getElementById("image-360").setAttribute('material', 'src', '#cais2')
           });
-
+          //Código que muda as imagens 360º
           document.getElementById("image-3").addEventListener("click", function() {
             document.getElementById("image-360").setAttribute('material', 'src', '#cais3')
           });
-
-      </script>
-
-
-    <!-- JS CODE -->
-    <script language="javascript">
-        $('#myCarousel').on('slide.bs.carousel', function (e) {
-        
-          
-            var $e = $(e.relatedTarget);
-            var idx = $e.index();
-            var itemsPerSlide = 4;
-            var totalItems = $('.carousel-item').length;
-            
-            if (idx >= totalItems-(itemsPerSlide-1)) {
-                var it = itemsPerSlide - (totalItems - idx);
-                for (var i=0; i<it; i++) {
-                    // append slides to end
-                    if (e.direction=="left") {
-                        $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                    }
-                    else {
-                        $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                    }
-                }
-            }
-        });
-        
-        
-          $('#myCarousel').carousel({ 
-                        interval: 2000
-                });
-        
-        
-          $(document).ready(function() {
-        /* show lightbox when clicking a thumbnail */
-            $('a.thumb').click(function(event){
-              event.preventDefault();
-              var content = $('.modal-body');
-              content.empty();
-                var title = $(this).attr("title");
-                $('.modal-title').html(title);        
-                content.html($(this).html());
-                $(".modal-profile").modal({show:true});
-            });
-        
+          //Código que muda as imagens 360º 
+          document.getElementById("image-4").addEventListener("click", function() {
+            document.getElementById("image-360").setAttribute('material', 'src', '#cais4')
+          });
+          //Código que muda as imagens 360º
+           document.getElementById("image-5").addEventListener("click", function() {
+            document.getElementById("image-360").setAttribute('material', 'src', '#cais5')
+          });
+          //Código que muda as imagens 360º
+          document.getElementById("image-6").addEventListener("click", function() {
+            document.getElementById("image-360").setAttribute('material', 'src', '#cais6')
+          });
+           //Código que muda as imagens 360º 
+           document.getElementById("image-7").addEventListener("click", function() {
+            document.getElementById("image-360").setAttribute('material', 'src', '#cais7')
+          });
+          //Código que muda as imagens 360º
+           document.getElementById("image-8").addEventListener("click", function() {
+            document.getElementById("image-360").setAttribute('material', 'src', '#cais8')
+          });
+          //Código que muda as imagens 360º
+          document.getElementById("image-9").addEventListener("click", function() {
+            document.getElementById("image-360").setAttribute('material', 'src', '#cais9');
           });
 
+          var i = -90
+
+          document.addEventListener("DOMContentLoaded", function(){
+
+               document.getElementById("image-360").setAttribute('rotation', {x: 0, y: i, z:0})
+
+           
+          })
+
+          function Temporizador(initiate) {
+              if (initiate !== true) {
+                  i  = i - 0.007;
+                  document.getElementById("image-360").setAttribute('rotation', {x: 0, y: i, z:0})
+                  console.log(i);
+              }
+
+              
+              setTimeout(Temporizador, -1000);
+          }
+
+
+             $(function() {
+
+                Temporizador(true); 
+                
+            });
+
+
+         function hide() {
+          
+            $("#dialog").removeClass('intro-overlay');
+
+         }
+
+         $(document).ready(function(){
+          $('.panel-thumbnail').click(function(){
+            $trClass = $(this).attr('class');
+            if ($trClass == undefined || $trClass == 'desclicado'){
+              $(this).attr('class', 'clicado');
+            } else {
+              $(this).attr('class', 'desclicado');
+            }
+          });
+        });
+                  
+                  $(function(){
+                      $('[data-is-button-for]').click(function(){
+                          var receiver = $('[data-is-receiver-for="'+$(this).attr('data-is-button-for')+'"]');
+                          if(receiver.attr('visible') == true) {
+                              console.log("hide");
+                              receiver.attr('visible', false);
+                          }else{
+                              console.log("show");
+                              receiver.attr('visible', true);
+                          }
+                      });
+                  });
+                  
+                  $(function(){
+                      $('[data-is-toggle-button-for]').click(function(){
+                          var receiver = $('[data-is-toggle-receiver-for="'+$(this).attr('data-is-toggle-button-for')+'"]');
+                          if(receiver.attr('visible') == true) {
+                              console.log("hide");
+                              receiver.attr('visible', false);
+                          }else{
+                              console.log("show");
+                              receiver.attr('visible', true);
+                          }
+                      });
+                  });
+                  
+                  $(function(){
+                      $('[data-array-link]').click(function() {
+                          var link = $(this);
+                          var linkWindow = $('[data-array-link-id="'+$(this).attr('data-array-link')+'"]');
+                          $( '[data-array="'+linkWindow.attr('data-array')+'"]').each(function(index, object) {
+                              $(object).attr('visible', false);
+                          });
+                          console.log('got here at least');
+                          linkWindow.attr('visible', true);
+                      });
+                  });
+                  
+                  $(function(){
+                      $('[data-is-room-button-for]').click(function(){
+                          var receiver = $('[data-is-room-receiver-for="'+$(this).attr('data-is-room-button-for')+'"]');
+                          if(receiver.attr('visible') == true) {
+                              console.log("hide");
+                              receiver.attr('visible', false);
+                          }else{
+                              console.log("show");
+                              receiver.attr('visible', true);
+                          }
+                      });
+                  });
+                  
+                  $(function(){
+                      $('[data-array-poi-link]').click(function() {
+                          var link = $(this);
+                          var linkWindow = $('[data-array-poi-link-id="'+$(this).attr('data-array-poi-link')+'"]');
+                          $( '[data-poi-array="'+linkWindow.attr('data-poi-array')+'"]').each(function(index, object) {
+                              $(object).attr('visible', false);
+                          });
+                          console.log('poi visiblity array');
+                      });
+                  });
+
       </script>
-
-      <!-- Image links. -->          
-      <a-entity id="links" layout="type: line; margin: 1.4" position="-7.2 -1 -4.8">
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-          <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
-        </a-entity>
-    </div>
-
   </body>
 </html>
 
