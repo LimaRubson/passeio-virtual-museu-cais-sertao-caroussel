@@ -50,6 +50,20 @@
           text-align: center;
         }
 
+        .intro-overlay-museu {
+          z-index: 1;
+          position: absolute;
+          top: 15%;
+          left: 25%;
+          max-width: 900px;
+          box-sizing: border-box;
+          padding: 1.5em;
+          color: #FFF;
+          background: rgba(0, 0, 0, 0.75);
+          font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+          text-align: center;
+        }
+
         .intro-overlay-caroussel {
           z-index: 1;
           position: absolute;
@@ -268,7 +282,148 @@
   </head>
   <body>
     <a-scene cursor="rayOrigin: mouse">
-      <a-assets>
+
+        <a-sky data-array-link-id="rot" id="image-360-1" data-array="room" src="img/image-1.jpg" visible="true" rotation="0 -90 0"></a-sky>
+        <a-sky data-array-link-id="spl" id="image-360-2" data-array="room" src="img/image-2.jpg" visible="false" rotation="0 -90 0"></a-sky>
+        <a-sky data-array-link-id="nhr" id="image-360-3" data-array="room" src="img/image-3.jpg" visible="false" rotation="-.5 -93 5"></a-sky>
+        <a-sky data-array-link-id="asc" id="image-360-4" data-array="room" src="img/image-4.jpg" visible="false" rotation="0 -90 3.5"></a-sky>
+        <a-sky data-array-link-id="gof" id="image-360-5" data-array="room" src="img/image-5.jpg" visible="false" rotation="0 180 -2"></a-sky>
+        <a-sky data-array-link-id="sch" id="image-360-6" data-array="room" src="img/image-6.jpg" visible="false" rotation="0 -90 0"></a-sky>
+        <a-sky data-array-link-id="sct" id="image-360-7" data-array="room" src="img/cais-sertao-7.jpg" visible="false" rotation="0 -90 -6"></a-sky>
+        <a-sky data-array-link-id="lan" id="image-360-8" data-array="room" src="img/cais-sertao-8.jpg" visible="false" rotation="0 90 0"></a-sky>
+        <a-sky data-array-link-id="gcr" id="image-360-9" data-array="room" src="img/cais-sertao-9.jpg" visible="false" rotation="0 0 2"></a-sky>
+    
+        
+         <!--Below is the code for POI "circles" that user clicks on-->
+
+  <!--POI Indicator for Rotunda-->
+
+    <a-entity id="indicators-1" data-array-link-id="rot" data-is-toggle-receiver-for="rot1" visible="true">
+        <a-image id="indicators-1-botao-1" src="img/POI_Indicator.png" data-is-button-for="rotpoi" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="7 7 7" position="-2 -8 -30" opacity="1" rotation="30.66 200 0"> </a-image>
+  
+          <!--a-image src="img/POI_Indicator.png" data-is-button-for="rotpoi1" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="2.3 2.3 2.3" position="0 12 -1" opacity="1" rotation="90 90 0"> </a-image>
+  
+           <a-image src="img/POI_Indicator.png" data-is-button-for="rotpoi2" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="3 3 3" position="9.5 9 10" opacity="1" rotation="0 -135 0"> </a-image>
+  
+            <a-image src="img/POI_Indicator.png" data-is-button-for="rotpoi3" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="12 12 12" position="-31.76 54.72 -18.08" opacity="1" rotation="28.88 57.84 0"> </a-image-->
+      </a-entity>
+  
+  <!--POI indicators for the governors conference room-->
+  
+      <a-entity id="indicators-2" data-array-link-id="gcr" data-is-toggle-receiver-for="gcr1" visible="false">
+        <a-image id="indicators-2-botao-1" src="img/POI_Indicator.png" data-is-button-for="gcrpoi" data-array-link-id="gcr" data-array="room" data-poi-array="gcr" data-is-toggle-button-for="gcr1" scale="1.8 1.8 2" position="1 1 -10" opacity="1" rotation="0 -20 0"> </a-image>
+                         
+          <!--a-image src="img/POI_Indicator.png" data-is-button-for="gcrpoi1" data-array-link-id="gcr" data-array="room" data-poi-array="gcr" data-is-toggle-button-for="gcr1" scale="3 3 3" position="-15.08 0.82 0.58" opacity="1" rotation="0 90 0"> </a-image> 
+  
+           <a-image src="img/POI_Indicator.png" data-is-button-for="gcrpoi2" data-array-link-id="gcr" data-array="room" data-poi-array="gcr" data-is-toggle-button-for="gcr1" scale="2 2 2" position="-10 -.52 -3.08" opacity="1" rotation="0 60 0"> </a-image-->    
+      </a-entity>
+  
+      <!--POI Indicators for the North Hearing Room-->
+  
+      <!--a-entity id="indicators-3" data-array-link-id="nhr" data-is-toggle-receiver-for="nhr1" visible="false">
+        <a-image src="img/POI_Indicator.png" data-is-button-for="nhrpoi" data-array-link-id="nhr" data-array="room" data-poi-array="nhr" data-is-toggle-button-for="nhr1" scale="2.5 2.5 2.5" position="8 8 -4" opacity="1" rotation="20.56 -77 0"> </a-image>
+           
+          <a-image src="img/POI_Indicator.png" data-is-button-for="nhrpoi1" data-array-link-id="nhr" data-array="room" data-poi-array="nhr" data-is-toggle-button-for="nhr1" scale="2 2 2" position="-3.76 0.81 -7.64" opacity="1" rotation="0.10 28.70 0"> </a-image>
+  
+           <a-image src="img/POI_Indicator.png" data-is-button-for="nhrpoi2" data-array-link-id="nhr" data-array="room" data-poi-array="nhr" data-is-toggle-button-for="nhr1" scale="2.5 2.5 2.5" position="-8.84 9.64 -2.85" opacity="1" rotation="15.36 78.82 0"> </a-image>       
+      </a-entity-->
+  
+  <!--POI indicators for the Senate Parlor -->
+  
+      <!--a-entity id="indicators-4" data-array-link-id="spl" data-is-toggle-receiver-for="spl1" visible="false">
+        <a-image src="img/POI_Indicator.png" data-is-button-for="splpoi" data-array-link-id="spl" data-array="room" data-poi-array="spl" data-is-toggle-button-for="spl1" scale="2 2 2" position="1.64 3.86 7.17" opacity="1" rotation="120 0 0"> </a-image>
+  
+        <a-image src="img/POI_Indicator.png" data-is-button-for="splpoi1" data-array-link-id="spl" data-array="room" data-poi-array="spl" data-is-toggle-button-for="spl1" scale="2 2 2" position="-3.94 -1.32 -8.90" opacity="1" rotation="0 0 0"> </a-image> 
+       
+         <a-image src="img/POI_Indicator.png" data-is-button-for="splpoi2" data-array-link-id="spl" data-array="room" data-poi-array="spl" data-is-toggle-button-for="spl1" scale="3.5 3.5 3.5" position="-2.76 6.52 20.62" opacity="1" rotation="-49.14 0 0"> </a-image> 
+  
+      </a-entity-->
+  
+      <!--POI Indicators for the Assembly Chamber-->
+  
+      <!--a-entity id="indicators-5" data-array-link-id="asc" data-is-toggle-receiver-for="asc1" visible="false">
+        <a-image src="img/POI_Indicator.png" data-is-button-for="ascpoi" data-array-link-id="asc" data-array="room" data-poi-array="asc" data-is-toggle-button-for="asc1" scale="2 2 2" position="3.90 3.82 -10.10" opacity="1" rotation="0 0 0"> </a-image>
+  
+        <a-image src="img/POI_Indicator.png" data-is-button-for="ascpoi1" data-array-link-id="asc" data-array="room" data-poi-array="asc" data-is-toggle-button-for="asc1" scale="3.8 3.8 2" position="-1.45 2.62 -19.91" opacity="1" rotation="0 0 0"> </a-image> 
+       
+         <a-image src="img/POI_Indicator.png" data-is-button-for="ascpoi2" data-array-link-id="asc" data-array="room" data-poi-array="asc" data-is-toggle-button-for="asc1" scale="2 2 2" position="-10 5.41 -10.90" opacity="1" rotation="0 45 0"> </a-image> 
+   
+      </a-entity-->
+  
+     <!--POI Indicators for Governors Office-->
+  
+      <!--a-entity id="indicators-6" data-array-link-id="gof" data-is-toggle-receiver-for="gof1" visible="false">
+        <a-image src="img/POI_Indicator.png" data-is-button-for="gofpoi" data-array-link-id="gof" data-array="room" data-poi-array="gof" data-is-toggle-button-for="gof1" scale="2.5 2.5 2.5" position="-1.20 0.63 -17.98" opacity="1" rotation="0 0 0"> </a-image>
+  
+          <a-image src="img/POI_Indicator.png" data-is-button-for="gofpoi1" data-array-link-id="gof" data-array="room" data-poi-array="gof" data-is-toggle-button-for="gof1" scale="2.3 2.3 2.3" position="-14.5 -1.31 4.16" opacity="1" rotation="-.06 98.68 .62"> </a-image>
+  
+           <a-image src="img/POI_Indicator.png" data-is-button-for="gofpoi2" data-array-link-id="gof" data-array="room" data-poi-array="gof" data-is-toggle-button-for="gof1" scale="3 3 3" position="2.96 -4.12 -20.78" opacity="1" rotation="-13.32 0 0"> </a-image>
+  
+            <a-image src="img/POI_Indicator.png" data-is-button-for="gofpoi3" data-array-link-id="gof" data-array="room" data-poi-array="gof" data-is-toggle-button-for="gof1" scale="4 4 4" position="26.28 2.07 5.89" opacity="1" rotation="0 90 0"> </a-image>
+      </a-entity-->
+  
+      <!--POI Indicators for Senate Chamber-->
+  
+      <!--a-entity id="indicators-7" data-array-link-id="sch" data-is-toggle-receiver-for="sch1" visible="false">
+        <a-image src="img/POI_Indicator.png" data-is-button-for="schpoi" data-array-link-id="sch" data-array="room" data-poi-array="sch" data-is-toggle-button-for="sch1" scale="2 2 2" position="-0.60 3.54 -13.04" opacity="1" rotation="0 0 0"> </a-image>
+  
+        <a-image src="img/POI_Indicator.png" data-is-button-for="schpoi1" data-array-link-id="sch" data-array="room" data-poi-array="sch" data-is-toggle-button-for="sch1" scale="2 2 2" position="9.6 4.96 .14" opacity="1" rotation="0 -90 0"> </a-image> 
+       
+         <a-image src="img/POI_Indicator.png" data-is-button-for="schpoi2" data-array-link-id="sch" data-array="room" data-poi-array="sch" data-is-toggle-button-for="sch1" scale="3 3 2" position=".4 15.54 -9.70" opacity="1" rotation="29.94 0 0"> </a-image> 
+   
+      </a-entity-->
+  
+      <!--POI Indicators for the Supreme Court-->
+  
+      <!--a-entity id="indicators-8" data-array-link-id="sct" data-is-toggle-receiver-for="sct1" visible="false">
+        <a-image src="img/POI_Indicator.png" data-is-button-for="sctpoi" data-array-link-id="sct" data-array="room" data-poi-array="sct" data-is-toggle-button-for="sct1" scale="7 7 7" position="-18.68 9.79 -21.04" opacity="1" rotation="0 35 0"> </a-image>
+  
+          <a-image src="img/POI_Indicator.png" data-is-button-for="sctpoi1" data-array-link-id="sct" data-array="room" data-poi-array="sct" data-is-toggle-button-for="sct1" scale="2.3 2.3 2.3" position="15.67 5.34 -0.78" opacity="1" rotation="0 -90 0"> </a-image>
+  
+           <a-image src="img/POI_Indicator.png" data-is-button-for="sctpoi2" data-array-link-id="sct" data-array="room" data-poi-array="sct" data-is-toggle-button-for="sct1" scale="3 3 3" position="-1.30 5.40 -12.46" opacity="1" rotation="0 0 0"> </a-image>
+  
+            <a-image src="img/POI_Indicator.png" data-is-button-for="sctpoi3" data-array-link-id="sct" data-array="room" data-poi-array="sct" data-is-toggle-button-for="sct1" scale="12 12 12" position="68.18 -11.72 -31.18" opacity="1" rotation="0 -70.44 0"> </a-image>
+  
+             <a-image src="img/POI_Indicator.png" data-is-button-for="sctpoi4" data-array-link-id="sct" data-array="room" data-poi-array="sct" data-is-toggle-button-for="sct1" scale="10 10 10" position="-42.40 13.70 -2.62" opacity="1" rotation="6.96 90 0"> </a-image>
+      </a-entity-->
+
+
+      <a-entity id="receiver-botao-1" data-is-receiver-for="rotpoi" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+            <!--a-image src="images/POIs/Rotunda_LibertyBell.png" position="-61.70 40 -4" width="48" height="24" scale="2 2 2" rotation="35 90 0"></a-image>
+            <a-image id="close-inf-botao-1" data-is-toggle-button-for="rot1" src="images/ui/ic_clear_black_24px.png"  position="-49.06 53.56 -44.60" width=".4" height=".4" scale="16 16 16" rotation="35 90 0"></a-image>
+            <a-sound src="sound/Luiz-Gonzaga-Asa-Branca.mp3" autoplay="false" volume="50" position="-61.70 20 -200"></a-sound>
+            <a-image src="img/frases-luiz-gonzaga.jpg" position="-61.70 20 -200" width="160" height="80" scale="2 2 2" rotation="-4 -1 0"></a-image>
+            <a-image id="close-inf-botao-1" data-is-button-for="rotpoi" data-is-toggle-button-for="rot1" src="img/ic_clear_black_24px.png"  position="80.70 90 -200" width="1" height="1" scale="16 16 16" rotation="5 -5 5"></a-image-->
+      
+              <!--a-image src="img/frases-luiz-gonzaga.jpg" position="-61.70 20 -200" width="160" height="80" scale="2 2 2" rotation="-4 -1 0"></a-image>
+              <a-image id="close-inf-botao-1" data-is-button-for="rotpoi" data-is-toggle-button-for="rot1" src="img/ic_clear_black_24px.png"  position="80.70 90 -200" width="1" height="1" scale="16 16 16" rotation="5 -5 5"></a-image-->
+
+              <!--a-video src="video/Conhecendo-Museus.mp4" width="16" height="9" position="-61.70 20 -200"></a-video-->
+
+      </a-entity>
+
+      <!--a-entity id="receiver-botao-2" data-is-receiver-for="rotpoi" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+          <a-image src="images/POIs/Rotunda_LibertyBell.png" position="-61.70 40 -4" width="48" height="24" scale="2 2 2" rotation="35 90 0"></a-image>
+          <a-image id="close-inf-botao-1" data-is-toggle-button-for="rot1" src="images/ui/ic_clear_black_24px.png"  position="-49.06 53.56 -44.60" width=".4" height=".4" scale="16 16 16" rotation="35 90 0"></a-image>
+          <a-sound src="sound/Luiz-Gonzaga-Asa-Branca.mp3" autoplay="false" volume="50" position="-61.70 20 -200"></a-sound>
+          <a-image src="img/frases-luiz-gonzaga.jpg" position="-61.70 20 -200" width="160" height="80" scale="2 2 2" rotation="-4 -1 0"></a-image>
+          <a-image id="close-inf-botao-2" data-is-button-for="rotpoi" data-is-toggle-button-for="rot1" src="img/ic_clear_black_24px.png"  position="80.70 90 -200" width="1" height="1" scale="16 16 16" rotation="5 -5 5"></a-image>
+    
+      </a-entity-->
+
+    <!--Gov_Conf_Room-->
+    <a-entity id="receiver-botao-2" data-is-receiver-for="gcrpoi" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+        <!--a-image src="images/POIs/GovernorsConferenceRoom_CivilWarMural.png" position="49.66 9.92 -6.66" width="48" height="24" scale="1 1 1" rotation="1.96 -85.90 -0.56"></a-image>
+          <a-image data-is-button-for="gcrpoi" data-is-toggle-button-for="gcr1" src="images/ui/ic_clear_black_24px.png"  position="49.62 18.58 14.42" scale="4 4 4" width="1" height="1" rotation="0 -90 -1.62"></a-image-->
+  
+          <a-sound src="sound/Luiz-Gonzaga-Asa-Branca.mp3" autoplay="false" volume="50" position="-61.70 20 -200"></a-sound>
+          <a-image src="img/frases-luiz-gonzaga.jpg" position="-61.70 20 -200" width="160" height="80" scale="2 2 2" rotation="-4 -1 0"></a-image>
+          <a-image id="close-inf-botao-2" data-is-button-for="gcrpoi" data-is-toggle-button-for="gcr1" src="img/ic_clear_black_24px.png"  position="80.70 90 -200" width="1" height="1" scale="16 16 16" rotation="5 -5 5"></a-image>
+      
+    </a-entity>
+
+
+      <!--a-assets>
         <img id="cais1" crossorigin="anonymous" src="img/image-1.jpg">
         <img id="cais2" crossorigin="anonymous" src="img/image-2.jpg">
         <img id="cais3" crossorigin="anonymous" src="img/image-3.jpg">
@@ -280,21 +435,56 @@
         <img id="cais9" crossorigin="anonymous" src="img/cais-sertao-9.jpg">
       </a-assets>
 
-      <!-- 360-degree image. -->
-      <a-sky data-array-link-id="rot" data-array="room" id="image-360"  src="#cais1" visible="true" rotation="0 -90 0"></a-sky>
+      <! 360-degree image. -->
+      <!--a-sky data-array-link-id="rot" data-array="room" id="image-360"  src="#cais1" visible="true" rotation="-4 -90 0"></a-sky>
 
       <a-entity text="font: mozillavr; value: Via stock font name."></a-entity>
 
-    <!--Below is the code for POI "circles" that user clicks on -->
+      <a-entity id="cais-2" data-array-link-id="rot" data-is-toggle-receiver-for="rot1" visible="false">
+          <a-image src="img/POI_Indicator.png" data-is-button-for="rotpoi" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="7 7 7" position="1 3 -30" opacity="1" rotation="30.66 200 0"> </a-image>
+  
+          <!a-image src="img/POI_Indicator.png" data-is-button-for="rotpoi1" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="2.3 2.3 2.3" position="0 12 -1" opacity="1" rotation="90 90 0"> </a-image>
+  
+          <a-image src="img/POI_Indicator.png" data-is-button-for="rotpoi2" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="3 3 3" position="9.5 9 10" opacity="1" rotation="0 -135 0"> </a-image>
+  
+          <a-image src="img/POI_Indicator.png" data-is-button-for="rotpoi3" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="12 12 12" position="-31.76 54.72 -18.08" opacity="1" rotation="28.88 57.84 0"> </a-image>
+      </a-entity>
 
-    <!-- POI Indicator for Rotunda -->
-    <a-image id="indicator-1"  src="img/POI_Indicator.png" data-is-button-for="rotpoi" data-array-link-id="rot" data-array="room" data-poi-array="rot" data-is-toggle-button-for="rot1" scale="7 7 7" position="-25 10 -30" opacity="1" rotation="30.66 90 0"></a-image>
-   
-    <a-entity data-is-receiver-for="rotpoi" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
-      <a-image src="img/Rotunda_LibertyBell.png" position="-61.70 20 -200" width="80" height="40" scale="2 2 2" rotation="-15 5 0"></a-image>
+     
+      <a-entity data-is-receiver-for="rotpoi" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+
+          <a-sound src="sound/Luiz-Gonzaga-Asa-Branca.mp3" autoplay="false" volume="50" position="-61.70 20 -200"></a-sound>
+          <a-image src="img/frases-luiz-gonzaga.jpg" position="-61.70 20 -200" width="160" height="80" scale="2 2 2" rotation="-4 -1 0"></a-image>
+          <a-image data-is-button-for="rotpoi" data-is-toggle-button-for="rot1" src="img/ic_clear_black_24px.png"  position="80.70 90 -200" width="1" height="1" scale="16 16 16" rotation="5 -5 5"></a-image>
+
+      </a-entity>
+
+    <!a-entity data-is-receiver-for="rotpoi1" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+        <a-video src="video/Conhecendo-Museus.mp4" width="80" height="40" position="0 0 -20"></a-video>
     </a-entity>
 
+     <a-entity data-is-receiver-for="rotpoi2" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+      <a-image src="images/POIs/Rotunda_RobertLaFollette.png" position="14 9 14" width="10" height="5" scale="2.7 2.7 2.7" rotation="11.68 -135 0"></a-image>
+        <a-image data-is-button-for="rotpoi2" data-is-toggle-button-for="rot1" src="images/ui/ic_clear_black_24px.png"  position="5.08 13.60 21.03" width="4" height="4" scale=".8 .8 .8" rotation="-7.92 45.48 0"></a-image>
+    </a-entity>
+
+      <a-entity data-is-receiver-for="rotpoi3" data-array-poi-link-id="panelhide" data-poi-array="poiarray" visible="false">
+      <a-image src="images/POIs/Rotunda_Mosaic.png" position="-43.88 62.05 -25.42" width="10" height="5" scale="7.5 7.5 7.5" rotation="35.04 66.20 0"></a-image>
+        <a-image data-is-button-for="rotpoi3" data-is-toggle-button-for="rot1" src="images/ui/ic_clear_black_24px.png"  position="-24.06 72.36 -50.97" width="4" height="4" scale="2 2 1" rotation="35.96 66.54 0"></a-image>
+    </a-entity-->
+
+
     </a-scene><br/>
+
+        <!-- dialog box overlay for desktop users -->
+        <div id="dialog-1" class="img-rounded intro-overlay-museu">
+            
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Pw9ZJ626zrE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            
+            <p><a onclick="hideDialog1()" class="btn btn-success pull-right">Fechar</a></p>
+
+       </div>
+
         <!-- dialog box overlay for desktop users -->
         <div id="dialog" class="img-rounded intro-overlay">
 
@@ -418,39 +608,210 @@
 
           //Código que muda as imagens 360º 
           document.getElementById("image-1").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais1')
+            document.getElementById("image-360-1").setAttribute('visible', 'true')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'true')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'false')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            //document.getElementById("indicators-9").setAttribute('visible', 'false')
+
           });
           //Código que muda as imagens 360º
            document.getElementById("image-2").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais2')
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'true')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'true')
+            document.getElementById("indicators-3").setAttribute('visible', 'false')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            //document.getElementById("indicators-9").setAttribute('visible', 'false')
+            
           });
           //Código que muda as imagens 360º
           document.getElementById("image-3").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais3')
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'true')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'true')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            //document.getElementById("indicators-9").setAttribute('visible', 'false')
+
           });
           //Código que muda as imagens 360º 
           document.getElementById("image-4").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais4')
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'true')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'true')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            document.getElementById("indicators-9").setAttribute('visible', 'false')
+
           });
           //Código que muda as imagens 360º
            document.getElementById("image-5").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais5')
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'true')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'false')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'true')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            //document.getElementById("indicators-9").setAttribute('visible', 'false')
+
           });
           //Código que muda as imagens 360º
           document.getElementById("image-6").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais6')
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'true')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'false')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'true')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            document.getElementById("indicators-9").setAttribute('visible', 'false')
+
           });
            //Código que muda as imagens 360º 
            document.getElementById("image-7").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais7')
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'true')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'false')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'true')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            document.getElementById("indicators-9").setAttribute('visible', 'false')
+
           });
           //Código que muda as imagens 360º
            document.getElementById("image-8").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais8')
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'true')
+            document.getElementById("image-360-9").setAttribute('visible', 'false')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'false')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'true')
+            document.getElementById("indicators-9").setAttribute('visible', 'false')
+
           });
           //Código que muda as imagens 360º
           document.getElementById("image-9").addEventListener("click", function() {
-            document.getElementById("image-360").setAttribute('material', 'src', '#cais9');
+            document.getElementById("image-360-1").setAttribute('visible', 'false')
+            document.getElementById("image-360-2").setAttribute('visible', 'false')
+            document.getElementById("image-360-3").setAttribute('visible', 'false')
+            document.getElementById("image-360-4").setAttribute('visible', 'false')
+            document.getElementById("image-360-5").setAttribute('visible', 'false')
+            document.getElementById("image-360-6").setAttribute('visible', 'false')
+            document.getElementById("image-360-7").setAttribute('visible', 'false')
+            document.getElementById("image-360-8").setAttribute('visible', 'false')
+            document.getElementById("image-360-9").setAttribute('visible', 'true')
+
+            document.getElementById("indicators-1").setAttribute('visible', 'false')
+            document.getElementById("indicators-2").setAttribute('visible', 'false')
+            document.getElementById("indicators-3").setAttribute('visible', 'false')
+            document.getElementById("indicators-4").setAttribute('visible', 'false')
+            document.getElementById("indicators-5").setAttribute('visible', 'false')
+            document.getElementById("indicators-6").setAttribute('visible', 'false')
+            document.getElementById("indicators-7").setAttribute('visible', 'false')
+            document.getElementById("indicators-8").setAttribute('visible', 'false')
+            document.getElementById("indicators-9").setAttribute('visible', 'true')
+
           });
 
           var i = -90
@@ -474,18 +835,36 @@
           }
 
 
-             $(function() {
+             /*$(function() {
 
                 Temporizador(true); 
-                
-            });
+               ) 
+            });*/
 
+        $("#dialog-1").removeClass('intro-overlay-museu');
+
+        function hideDialog1() {
+          $("#dialog-1").removeClass('intro-overlay-museu');
+          if(document.getElementById("indicators-1-botao-1").getAttribute('visible') == false) {
+            document.getElementById("indicators-1-botao-1").setAttribute('visible', 'true')
+          }
+            $("iframe").each(function() { 
+              var src= $(this).attr('src');
+              $(this).attr('src',src);  
+            });
+        }
 
          function hide() {
           
             $("#dialog").removeClass('intro-overlay');
 
          }
+
+         function show() {
+          
+          $("#dialog-1").addClass('intro-overlay-museu');
+
+       }
 
          $(document).ready(function(){
           $('.panel-thumbnail').click(function(){
@@ -497,68 +876,38 @@
             }
           });
         });
-                  
-                  $(function(){
-                      $('[data-is-button-for]').click(function(){
-                          var receiver = $('[data-is-receiver-for="'+$(this).attr('data-is-button-for')+'"]');
-                          if(receiver.attr('visible') == true) {
-                              console.log("hide");
-                              receiver.attr('visible', false);
-                          }else{
-                              console.log("show");
-                              receiver.attr('visible', true);
-                          }
-                      });
-                  });
-                  
-                  $(function(){
-                      $('[data-is-toggle-button-for]').click(function(){
-                          var receiver = $('[data-is-toggle-receiver-for="'+$(this).attr('data-is-toggle-button-for')+'"]');
-                          if(receiver.attr('visible') == true) {
-                              console.log("hide");
-                              receiver.attr('visible', false);
-                          }else{
-                              console.log("show");
-                              receiver.attr('visible', true);
-                          }
-                      });
-                  });
-                  
-                  $(function(){
-                      $('[data-array-link]').click(function() {
-                          var link = $(this);
-                          var linkWindow = $('[data-array-link-id="'+$(this).attr('data-array-link')+'"]');
-                          $( '[data-array="'+linkWindow.attr('data-array')+'"]').each(function(index, object) {
-                              $(object).attr('visible', false);
-                          });
-                          console.log('got here at least');
-                          linkWindow.attr('visible', true);
-                      });
-                  });
-                  
-                  $(function(){
-                      $('[data-is-room-button-for]').click(function(){
-                          var receiver = $('[data-is-room-receiver-for="'+$(this).attr('data-is-room-button-for')+'"]');
-                          if(receiver.attr('visible') == true) {
-                              console.log("hide");
-                              receiver.attr('visible', false);
-                          }else{
-                              console.log("show");
-                              receiver.attr('visible', true);
-                          }
-                      });
-                  });
-                  
-                  $(function(){
-                      $('[data-array-poi-link]').click(function() {
-                          var link = $(this);
-                          var linkWindow = $('[data-array-poi-link-id="'+$(this).attr('data-array-poi-link')+'"]');
-                          $( '[data-poi-array="'+linkWindow.attr('data-poi-array')+'"]').each(function(index, object) {
-                              $(object).attr('visible', false);
-                          });
-                          console.log('poi visiblity array');
-                      });
-                  });
+
+        let audioEl = document.querySelector("a-sound");
+        let audio = audioEl.components.sound;
+
+        document.getElementById("indicators-2-botao-1").addEventListener("click", function () {
+          document.getElementById("receiver-botao-2").setAttribute('visible', 'true')
+          play = audio.playSound();
+          if(document.getElementById("indicators-2-botao-1").getAttribute('visible') == true) {
+            document.getElementById("indicators-2-botao-1").setAttribute('visible', 'false')
+          }
+
+        })
+
+        document.getElementById("close-inf-botao-2").addEventListener("click", function() {
+          if(document.getElementById("receiver-botao-2").getAttribute('visible') == true) {
+            document.getElementById("receiver-botao-2").setAttribute('visible', 'false');
+            stop = audio.stopSound();
+            document.getElementById("indicators-2-botao-1").setAttribute('visible', 'true');
+          }
+        })
+
+        document.getElementById("indicators-1-botao-1").addEventListener("click", function () {
+          document.getElementById("receiver-botao-1").setAttribute('visible', 'true')
+          show();
+          console.log("Video")
+
+          if(document.getElementById("indicators-1-botao-1").getAttribute('visible') == true) {
+            document.getElementById("indicators-1-botao-1").setAttribute('visible', 'false')
+          }
+
+        })
+               
 
       </script>
   </body>
