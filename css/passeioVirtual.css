@@ -1,0 +1,147 @@
+.intro-overlay {
+    z-index: 1;
+    position: absolute;
+    top: 20%;
+    left: 14%;
+    max-width: 900px;
+    box-sizing: border-box;
+    padding: 1.5em;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.75);
+    font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
+
+  .intro-overlay-museu {
+    z-index: 1;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    max-width: 900px;
+    box-sizing: border-box;
+    padding: 1.5em;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.75);
+    font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
+
+.intro-overlay-carousel {
+    z-index: 1;
+    position: absolute;
+    top: 74%;
+    left: 0%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.5em;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.75);
+    font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+
+  .menu-overlay {
+    z-index: 99999;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    box-sizing: border-box;
+    padding: 1.5em;
+    width: 60px;
+    height: 60px;
+    padding-bottom: 0px;
+    background: rgba(0, 0, 0, 0.5) url(./assets/images/hamburger-white.png) center no-repeat;
+    background-size: 40px 40px;
+    font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+  .menu-overlay:hover {
+    background: rgba(0, 0, 0, 0.2) url(./assets/images/hamburger-white.png) center no-repeat;
+    background-size: 40px 40px;
+  }
+
+  h1 {
+    font-size: 40px;
+    color: #eaab00;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .btn-success {
+    background: #eaab00;
+  }
+
+  * {
+        box-sizing: border-box;
+  }
+
+  .column {
+      float: left;
+      width: 16.5%;
+      padding: 3px;
+  }
+
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .panel-thumbnail {
+
+    border-style: solid;
+    border-color: #eaab00;
+    max-width: 100%;
+
+  }
+  
+  .panel-thumbnail:hover {
+
+    border-style: solid;
+    border-color: white;
+
+  }
+
+
+  .zoom {
+    overflow: hidden;
+  }
+
+  .zoom img {
+    max-width: 100%;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .zoom:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .description {
+    text-align: center;
+    }
+
+    #icone-caroussel {
+
+        width: 50px;
+      
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        /* display: inline-block; */
+        width: 20px;
+        margin-bottom: 30%;
+        color: #eaab00;
+    
+    }
+
+    .clicado {
+        border-style: solid;
+        border-color: white;
+    }
+
+
+
